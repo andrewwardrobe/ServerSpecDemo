@@ -16,6 +16,7 @@ properties = YAML.load_file('properties.yml')
 namespace :serverspec do
   task :all => properties[:targets].keys.map {|key| 'serverspec:' + key.split('.')[0] }
   properties[:targets].keys.each do |key|
+    spec_type = properties[:targets][key][:spec_type] || 'default'
     desc "Run serverspec to #{key}"
     if properties[:targets][key][:hosts].is_a?(Array)
         task key.to_sym => "serverspec:#{key}:all"
@@ -26,7 +27,7 @@ namespace :serverspec do
               ENV['TARGET_HOST'] = host
               ENV['TARGET'] = key
               ENV['TASK_NAME'] = "#{key}:#{host || properties[:targets][key][:name]}"
-              t.pattern = 'spec/default_spec.rb'
+              t.pattern = "spec/#{spec_type}_spec.rb"
             end
           end
         end
@@ -35,7 +36,7 @@ namespace :serverspec do
         ENV['TARGET_HOST'] = properties[:targets][key][:hosts]
         ENV['TARGET'] = key
         ENV['TASK_NAME'] = "#{key||properties[:targets][key][:name]}"
-        t.pattern = 'spec/default_spec.rb'
+        t.pattern = "spec/#{spec_type}_spec.rb"
       end
     else
 
@@ -43,7 +44,7 @@ namespace :serverspec do
         ENV['TARGET_HOST'] = key
         ENV['TARGET'] = key
         ENV['TASK_NAME'] = "#{key||properties[:targets][key][:name]}"
-        t.pattern = 'spec/default_spec.rb'
+        t.pattern = "spec/#{spec_type}_spec.rb"
       end
     end
   end
