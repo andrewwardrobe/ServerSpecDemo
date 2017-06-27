@@ -1,0 +1,16 @@
+---
+version: '3'
+services:
+  gemserver:
+    image: spoonest/geminabox
+    volumes:
+      - /tmp/geminabox:/webapps/geminabox/data
+    ports:
+      - 9292:9292
+  jenkins:
+    image: jenkins
+    volumes:
+     - jenkins_home:/var/jenkins_home
+    ports:
+     - 8080:8080
+     - 50000:50000

@@ -1,0 +1,41 @@
+---
+:targets:
+  dev-machine:
+    :backend: exec
+    :roles:
+      - puppet::agent
+      - :name: development::ruby
+        :description: Ruby Development
+      - development::docker
+      - development::docker-compose
+      - development::javascript
+      - development::puppet
+      - development::linux
+      - editors::vim
+      - iac::ansible
+      - utils::wget
+      - utils::curl
+  database:
+    :backend: docker
+    :docker_image: mongo
+    :roles:
+      - database::mongo
+  jenkins:
+    :backend: docker
+    :docker_image: jenkins
+    :roles:
+      - build_tools::jenkins
+  pi:
+    :hosts:
+      - raspberrypi
+      - blueberrypi
+    :user: pi
+    :roles:
+      - development::docker
+  sheek:
+    :backend: vagrant
+    :roles:
+     - debug::environment_vars
+    :environment:
+     - LEEK=SHEEK
+     - MEEK=FREEK
