@@ -1,4 +1,6 @@
 ---
+:shared_example_gems:
+  - serverspec_launcher
 :targets:
   dev-machine:
     :backend: exec
@@ -22,7 +24,7 @@
       - database::mongo
   jenkins:
     :backend: docker
-    :docker_image: jenkins
+    :docker_container: jenkins
     :roles:
       - build_tools::jenkins
   pi:
