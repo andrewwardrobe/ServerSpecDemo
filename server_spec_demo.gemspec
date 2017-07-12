@@ -35,5 +35,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec", "~> 3.6"
   spec.add_development_dependency "docker-api"
   spec.add_development_dependency "serverspec"
-  spec.add_development_dependency "serverspec_launcher", '0.1.0'
+  spec.add_development_dependency "serverspec_launcher", '0.1.1'
 end
