@@ -1,4 +1,6 @@
 ---
+:options:
+  :fail_on_err: false
 :shared_example_gems:
   - serverspec_launcher
 :targets:
