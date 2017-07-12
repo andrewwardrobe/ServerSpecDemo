@@ -21,7 +21,7 @@
       - utils::curl
   database:
     :backend: docker
-    :docker_image: mongo
+    :docker_image: mongo:latest
     :roles:
       - database::mongo
   jenkins:
