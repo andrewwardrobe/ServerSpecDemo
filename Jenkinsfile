@@ -7,6 +7,5 @@ node ('docker-host'){
         //}
         junit 'reports**/*.xml'
         publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'reports/', reportFiles: '*.html', reportName: 'HTML Report', reportTitles: ''])
-
     }
 }
