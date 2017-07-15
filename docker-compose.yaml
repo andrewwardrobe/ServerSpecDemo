@@ -9,7 +9,7 @@ services:
       - 9292:9292
   jenkins:
     image: andrewwardrobe/ssjenkins
-    volumes:
+    volumes: 
      - /tmp/jenkins_home:/var/jenkins_home
     ports:
      - 8080:8080

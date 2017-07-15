@@ -9,6 +9,9 @@
 :shared_example_gems:
   - serverspec_launcher
 :targets:
+  demo:
+    :backend: exec
+    :spec_type: demo
   dev-machine:
     :backend: exec
     :fail_on_err: false
