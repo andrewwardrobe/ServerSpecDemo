@@ -1,6 +1,9 @@
 ---
 :options:
   :fail_on_err: false
+  :formatters:
+   - junit
+   - html
 :shared_example_gems:
   - serverspec_launcher
 :targets:
