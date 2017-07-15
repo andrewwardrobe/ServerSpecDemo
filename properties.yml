@@ -6,6 +6,7 @@
 :targets:
   dev-machine:
     :backend: exec
+    :fail_on_err: false
     :roles:
       - puppet::agent
       - :name: development::ruby
