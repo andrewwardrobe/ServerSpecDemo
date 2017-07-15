@@ -2,6 +2,8 @@
 :options:
   :fail_on_err: false
   :formatters:
+   - docs
+   - docs_screen
    - junit
    - html
 :shared_example_gems:
