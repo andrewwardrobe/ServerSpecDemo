@@ -49,6 +49,7 @@
     :backend: vagrant
     :roles:
      - debug::environment_vars
-    :environment:
-     - LEEK=SHEEK
-     - MEEK=FREEK
+  docker-example:
+    :spec_type: docker
+    :backend: docker
+    :docker_build_dir: .
