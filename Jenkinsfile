@@ -1,12 +1,13 @@
 node ('docker-host'){
     stage('checkout'){
-        //sshagent(['ca208be7-50a7-4705-98f7-e24fcabc9537']) {
+        //
             git 'https://github.com/andrewwardrobe/ServerSpecDemo.git'
     }
     stage('Prepare Environments'){
             sh 'bundle install'
     }
     stage('Run Tests'){
+        //sshagent(['ca208be7-50a7-4705-98f7-e24fcabc9537']) {
             sh ' bundle exec rake serverspec'
         //}
     }
